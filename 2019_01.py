@@ -23,4 +23,3 @@ def bar(number):
 
 
 svar_b = sum(bar(i) for i in data)
-submit(svar_b, 1, 2019)
