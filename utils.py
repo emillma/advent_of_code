@@ -19,4 +19,4 @@ def get_data(day=None, year=None):
 
 def submit(answer, day=None, year=None, part=None):
     aocd.submit(answer=answer, part=part, day=day, year=year, session=session,
-                reopen=True, quiet=False)
+                reopen=False, quiet=False)
