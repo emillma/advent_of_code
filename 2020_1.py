@@ -1,4 +1,3 @@
-from requests.api import get
 from utils import get_data, submit
 
 
