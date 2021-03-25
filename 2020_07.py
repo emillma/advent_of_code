@@ -5,15 +5,6 @@ import re
 
 # basically an asyclic graph
 data = get_data(7, 2020).splitlines()
-t = '''shiny gold bags contain 2 dark red bags.
-dark red bags contain 2 dark orange bags.
-dark orange bags contain 2 dark yellow bags.
-dark yellow bags contain 2 dark green bags.
-dark green bags contain 2 dark blue bags.
-dark blue bags contain 2 dark violet bags.
-dark violet bags contain no other bags.
-'''
-data = t.splitlines()
 
 
 def parse(text):
@@ -51,5 +42,4 @@ def get_child_count(current_bag):
     return total
 
 
-ans2 = get_child_count(special)-1
-ans2
+ans2 = get_child_count('shiny gold')-1
