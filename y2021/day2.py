@@ -49,5 +49,7 @@ for line in data.splitlines():
     print(state)
 
 client.submit(2, state[0] * state[1])
+
+
 # print(state)
 # client.submit(1, ans)
