@@ -63,10 +63,6 @@ class AocClient:
         return self.get_puzzle_input(), self.get_example_input()
 
     def submit(self, level, answer):
-        if not isinstance(answer, int):
-            print("Answer must be an int")
-            answer = int(answer)
-
         if (self.status.get("level1_complete") and level == 1) or (
             self.status.get("level2_complete") and level == 2
         ):
@@ -83,6 +79,10 @@ class AocClient:
         if m := re.search(r"That's the right answer", text):
             print("Correct")
             self.status[f"level{level}_complete"] = True
+            self.cache_status.write_text(json.dumps(self.status))
+
+        elif m := re.search(r"That's not the right answer.* full input data", text):
+            print(m[0])
             self.cache_status.write_text(json.dumps(self.status))
 
         elif m := re.search(r"You have ((?:\d+m)) ((?:\d+s)) left to wait.", text):
